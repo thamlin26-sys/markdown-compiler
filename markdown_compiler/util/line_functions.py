@@ -3,13 +3,13 @@ import re
 
 def compile_headers(line):
     '''
-    Compiles markdown headers (# Heading) to HTML tags (<h1>Heading</h1>\n).
+    Compiles markdown headers (# Heading) to HTML tags (<h1> Heading</h1>).
     '''
-    match = re.match(r'^(#{1,6})\s*(.*?)\n?$', line)
+    match = re.match(r'^(#{1,6})(.*)$', line)
     if match:
         level = len(match.group(1))
-        content = match.group(2).strip()
-        return f'<h{level}>{content}</h{level}>\n'
+        content = match.group(2)
+        return f'<h{level}>{content}</h{level}>'
     return line
 
 
