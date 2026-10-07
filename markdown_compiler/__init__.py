@@ -6,8 +6,8 @@ from markdown_compiler.util.line_functions import (
     compile_italic_underscore,
     compile_strikethrough,
     compile_code_inline,
-    compile_links,
     compile_images,
+    compile_links,
 )
 
 
@@ -19,8 +19,8 @@ def _compile_line(line):
     line = compile_italic_underscore(line)
     line = compile_strikethrough(line)
     line = compile_code_inline(line)
-    line = compile_links(line)
     line = compile_images(line)
+    line = compile_links(line)
     return line
 
 
@@ -34,8 +34,8 @@ def compile_lines(lines, add_css=False):
     result = []
 
     if add_css:
-        css = "<style>\nbody { font-family: sans-serif; margin: 2rem; }\n</style>\n"
-        result.append(css)
+        result.append('<link rel="stylesheet" href="style.css">\n')
+        result.append('<link rel="stylesheet" href="custom.css">\n')
 
     in_p = False
     in_code = False

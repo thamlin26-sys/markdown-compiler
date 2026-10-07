@@ -30,16 +30,16 @@ def compile_italic_underscore(line):
 
 
 def compile_strikethrough(line):
-    return re.sub(r'~~(.*?)~~', r'<del>\1</del>', line)
+    return re.sub(r'~~(.*?)~~', r'<ins>\1</ins>', line)
 
 
 def compile_code_inline(line):
     return re.sub(r'`(.*?)`', r'<code>\1</code>', line)
 
 
-def compile_links(line):
-    return re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', line)
-
-
 def compile_images(line):
     return re.sub(r'!\[(.*?)\]\((.*?)\)', r'<img src="\2" alt="\1" />', line)
+
+
+def compile_links(line):
+    return re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', line)
