@@ -1,3 +1,4 @@
+import re
 from markdown_compiler.util.line_functions import (
     compile_headers,
     compile_bold_stars,
@@ -9,6 +10,13 @@ from markdown_compiler.util.line_functions import (
     compile_images,
     compile_links,
 )
+
+
+def minify(html):
+    '''
+    Minifies HTML by stripping trailing/leading whitespace and collapsing spaces.
+    '''
+    return re.sub(r'\s+', ' ', html).strip()
 
 
 def _compile_line(line):

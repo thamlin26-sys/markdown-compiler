@@ -33,8 +33,14 @@ def compile_strikethrough(line):
     return re.sub(r'~~(.*?)~~', r'<ins>\1</ins>', line)
 
 
+def _escape_code(match):
+    content = match.group(1)
+    content = content.replace('<', '&lt;').replace('>', '&gt;')
+    return f'<code>{content}</code>'
+
+
 def compile_code_inline(line):
-    return re.sub(r'`(.*?)`', r'<code>\1</code>', line)
+    return re.sub(r'`(.*?)`', _escape_code, line)
 
 
 def compile_images(line):
