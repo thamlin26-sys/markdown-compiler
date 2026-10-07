@@ -101,6 +101,18 @@ def compile_lines(lines, add_css=False):
 
 def markdown_to_html(markdown_text, add_css=False):
     '''
-    Starter convenience wrapper that converts a markdown string to HTML.
+    Converts markdown text to a full HTML document.
     '''
-    return compile_lines(markdown_text, add_css=add_css)
+    compiled_body = compile_lines(markdown_text, add_css=add_css)
+    return (
+        "<!DOCTYPE html>\n"
+        "<html>\n"
+        "<head>\n"
+        '  <meta charset="utf-8">\n'
+        "  <title>Compiled Markdown</title>\n"
+        "</head>\n"
+        "<body>\n"
+        f"{compiled_body}\n"
+        "</body>\n"
+        "</html>"
+    )
