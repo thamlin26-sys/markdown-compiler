@@ -49,6 +49,9 @@ def compile_lines(lines, add_css=False):
 
         if stripped.startswith('```'):
             if not in_code:
+                if in_p:
+                    result.append('</p>\n')
+                    in_p = False
                 in_code = True
                 result.append('<pre>\n')
             else:
