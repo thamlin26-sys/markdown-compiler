@@ -40,7 +40,7 @@ def _escape_code(match):
 
 
 def compile_code_inline(line):
-    return re.sub(r'`(.*?)`', _escape_code, line)
+    return re.sub(r'`([^`]+)`', _escape_code, line)
 
 
 def compile_images(line):

@@ -97,3 +97,10 @@ def compile_lines(lines, add_css=False):
         result.append('</p>')
 
     return ''.join(result)
+
+
+def markdown_to_html(markdown_text, add_css=False):
+    '''
+    Starter convenience wrapper that converts a markdown string to HTML.
+    '''
+    return compile_lines(markdown_text, add_css=add_css)
